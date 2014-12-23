@@ -28,15 +28,15 @@
 	<table class="table">
 		<thead>
 		<tr>
-			<th>Sphere  <input ng-model="search[0]"></th>
-			<th>Domain <input ng-model="search[1]"></th>
-			<th>SubDomain <input ng-model="search[2]"></th>
-			<th>Process <input ng-model="search[3]"></th>
-			<th>Po. <input ng-model="search[4]"></th>
-			<th>App. <input ng-model="search[5]"></th>
+			<th>Sphere </th>
+			<th>Domain </th>
+			<th>SubDomain </th>
+			<th>Process <input ng-model="search[3]" model-undefined></th>
+			<th>Po. <input ng-model="search[4]" model-undefined></th>
+			<th>App. <input ng-model="search[5]" model-undefined></th>
 		</tr>
 		</thead>
-		<tr ng-repeat="process in processes.data | filter:search:strict" >
+		<tr ng-repeat="process in processes.data | filter:search" >
 			<td>{{process[0]}}</td>
 			<td>{{process[1]}}</td>
 			<td>{{process[2]}}</td>
