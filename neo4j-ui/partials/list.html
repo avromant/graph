@@ -1,0 +1,89 @@
+<div>
+
+	<div class="row">
+
+		<div class="col-md-2">
+			<label for="inputSphere">Sphere</label>
+			<select id="inputSphere" class="form-control" ng-model="selectedSphere" ng-options="sphere.data.name for sphere in spheres" ng-change="loadMemberOf(selectedSphere.data.name, 'sphere')"></select>
+		</div>
+		<div class="col-md-2">
+			<label for="inputDomain">Domain</label>
+			<select id="inputDomain" class="form-control" ng-model="selectedDomain" ng-options="data[0] for data in domains.data" ng-change="loadMemberOf(selectedDomain, 'domain')"></select>
+		</div>
+		<div class="col-md-2">
+			<label for="inputSubDomain">Sub-Domain</label>
+			<select id="inputSubDomain" class="form-control" ng-model="selectedSubDomain" ng-options="data[0] for data in subDomains.data"></select>
+		</div>
+		{{selectedSphere.data.name}}
+		<button class="btn" ng-click="loadProcesses()">Search</button>
+
+
+		<!--<div class="col-md-2">
+			Product Owner : <select class="form-control" ng-model="selectedPerson" ng-options="person.data.name for person in person" ng-change="loadSpheres()"></select><br><br>
+		</div>
+	  	<div class="col-md-2">Applications : <select class="form-control">TBD</select><br><br></div>
+	  	<div class="col-md-2">Geographique : <select class="form-control">TBD</select><br><br></div>-->
+	</div>
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Sphere  <input ng-model="search[0]"></th>
+			<th>Domain <input ng-model="search[1]"></th>
+			<th>SubDomain <input ng-model="search[2]"></th>
+			<th>Process <input ng-model="search[3]"></th>
+			<th>Po. <input ng-model="search[4]"></th>
+			<th>App. <input ng-model="search[5]"></th>
+		</tr>
+		</thead>
+		<tr ng-repeat="process in processes.data | filter:search:strict" >
+			<td>{{process[0]}}</td>
+			<td>{{process[1]}}</td>
+			<td>{{process[2]}}</td>
+			<td>{{process[3]}}</td>
+			<td>{{process[4]}}</td>
+			<td>{{process[5]}}</td>
+		</tr>
+	</table>
+</div>
+
+
+<div ng-controller="ModalDemoCtrl">
+	<script type="text/ng-template" id="myModalContent.html">
+		<div class="modal-header">
+			<h3 class="modal-title">Add process</h3>
+		</div>
+		<div class="modal-body">
+			<div class="form-group">
+				<label for="inputSphere">Sphere</label>
+				<select id="inputSphere" class="form-control" ng-model="selectedSphere" ng-options="sphere.data.name for sphere in spheres" ng-change="loadMemberOf(selectedSphere.data.name, 'sphere')"></select>
+			</div>
+			<div class="form-group">
+				<label for="inputDomain">Domain</label>
+				<select id="inputDomain" class="form-control" ng-model="selectedDomain" ng-options="data[0] for data in domains.data" ng-change="loadMemberOf(selectedDomain, 'domain')"></select>
+			</div>
+			<div class="form-group">
+				<label for="inputSubDomain">Sub-Domain</label>
+				<select id="inputSubDomain" class="form-control" ng-model="selectedSubDomain" ng-options="data[0] for data in subDomains.data"></select>
+			</div>
+			<div class="form-group">
+				<label for="inputProcess">Process name</label>
+				<input type="text" id="inputProcess" class="form-control" ng-model="selectedProcess" />
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">OK</button>
+			<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
+
+	<button class="btn btn-default" ng-click="open()">Add process</button>
+	<button class="btn btn-default" ng-click="">Load all</button>
+
+</div>
+
+   
+
+
+
+
