@@ -12,9 +12,8 @@
 		</div>
 		<div class="col-md-2">
 			<label for="inputSubDomain">Sub-Domain</label>
-			<select id="inputSubDomain" class="form-control" ng-model="selectedSubDomain" ng-options="data[0] for data in subDomains.data"></select>
+			<select id="inputSubDomain" class="form-control" ng-model="selectedSubDomain" ng-options="data[0] for data in subDomains.data" ng-change="loadProcesses()"></select>
 		</div>
-		{{selectedSphere.data.name}}
 		<button class="btn" ng-click="loadProcesses()">Search</button>
 
 
